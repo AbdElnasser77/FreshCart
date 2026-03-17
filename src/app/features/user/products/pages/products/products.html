@@ -1,0 +1,21 @@
+<p>products works!</p>
+<div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
+    @for(product of products;track $index){
+    <div class="card  border bg-blue-700 h-100">
+        <img [src]="product.imageCover" [alt]="product.title">
+        <h2>{{product.title}}</h2>
+        <p>product</p>
+        <div class="price"></div>
+    </div>
+    }
+
+
+</div>
+<!-- <div class="card">
+    <img src="" alt="">
+    <h2></h2>
+    <p></p>
+    <div class="price">
+
+    </div>
+</div> -->

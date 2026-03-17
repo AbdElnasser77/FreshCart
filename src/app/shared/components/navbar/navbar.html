@@ -1,0 +1,24 @@
+<nav class="bg-light shadow fixed w-screen">
+    <div class="flex max-w-screen-xl flex-col md:flex-row flex-nowrap justify-between items-center m-auto md:p-4">
+        <div class="p-4 md:p-0 logo flex justify-between items-center w-full md:w-auto">
+            <a routerLink="/" routerLinkActive="">
+                <img src="./images/freshcart-logo.svg" alt="">
+            </a>
+            <button (click)="NavToggle()" class="text-4xl cursor-pointer md:hidden">=</button>
+        </div>
+        <div [class.hidden]="isMobileOpen" class="hidden md:flex links md:my-auto w-full flex-wrap flex-col md:flex-row items-center justify-between px-10">
+            <ul class="flex flex-col md:flex-row gap-4 text-center">
+                <li><a routerLink="/home"  routerLinkActive="text-main" class="text-main transition">Home</a></li>
+                <li><a routerLink="/products" routerLinkActive="text-main" class="hover:text-main transition">Products</a></li>
+                <li><a routerLink="/categories" routerLinkActive="text-main" class="hover:text-main transition">Categories</a></li>
+                <li><a routerLink="/brands" routerLinkActive="text-main" class="hover:text-main transition">Brands</a></li>
+                <li><a routerLink="/cart" routerLinkActive="text-main" class="hover:text-main transition">Cart</a></li>
+            </ul>
+            <ul class="flex flex-col md:flex-row gap-4 text-center mt-2 md:mt-0 md:ms-2">
+                <li><a routerLink="/login" routerLinkActive="text-main" class="hover:text-main transition">Login</a></li>
+                <li><a routerLink="/register" routerLinkActive="text-main" class="hover:text-main transition">Register</a></li>
+                <li><a routerLink="/logout" routerLinkActive="text-main" class="hover:text-main transition">Log out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

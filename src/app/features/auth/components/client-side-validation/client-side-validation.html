@@ -1,0 +1,28 @@
+@if (control?.errors && control?.touched) {
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-5">
+    <ul class="list-disc pl-5">
+      @if (control?.getError('required')) {
+        <li>Input is required</li>
+      }
+      @if (control?.getError('minlength')) {
+        <li>Input must be at least 2 characters long</li>
+      }
+      @if (control?.getError('maxlength')) {
+        <li>Input must not exceed 20 characters</li>
+      }
+      @if (control?.getError('email')) {
+        <li>Please enter a valid email</li>
+      }
+      @if (control?.getError('pattern')) {
+        Password Should have at least one
+        <ul class="list-disc pl-5">
+          <li>Upper case letter</li>
+          <li>Lower case letter</li>
+          <li>Digit</li>
+          <li>Special character</li>
+        </ul>
+        And a minimum of 8 characters
+      }
+    </ul>
+  </div>
+}
