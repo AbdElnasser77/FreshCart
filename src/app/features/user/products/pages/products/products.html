@@ -1,21 +1,40 @@
-<p>products works!</p>
-<div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
-    @for(product of products;track $index){
-    <div class="card  border bg-blue-700 h-100">
-        <img [src]="product.imageCover" [alt]="product.title">
-        <h2>{{product.title}}</h2>
-        <p>product</p>
-        <div class="price"></div>
+<div
+    class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 p-5 bg-gray-100 bg-[url('/images/light-patten.svg')]">
+    @for (product of products; track $index) {
+    <div class="w-full max-w-sm bg-white/90 overflow-hidden rounded-2xl shadow-xs border border-gray-100">
+
+        <a href="#" class="relative block group">
+            <img class="h-75 mb-4 w-full object-cover -scale-x-120 transition-opacity duration-300 group-hover:opacity-0"
+                [src]="product.imageCover" />
+            <img class="h-75 mb-4 w-full object-cover -scale-x-120 absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                [src]="product.images[2]" />
+
+        </a>
+        <div class="p-4">
+            <div class="flex justify-between">
+                <p class="text-main text-sm">{{product.category.name}}</p>
+                <div class="flex items-center">
+                    <svg lucideStar [size]="22" class="text-main pe-1"></svg>
+                    <p class="flex text-sm">{{product.ratingsAverage}} <span
+                            class="text-gray-700">({{product.ratingsQuantity}})</span></p>
+                </div>
+            </div>
+            <div class="flex">
+                <a href="#">
+                    <h5 class="text-lg text-heading font-semibold tracking-tight">{{product.title}}</h5>
+                </a>
+            </div>
+
+            <div class="flex items-center justify-between mt-4">
+                <span class="text font-semibold text-heading">{{ product.price | currency:'LE'}}</span>
+            </div>
+
+            <button
+                class="flex justify-center items-center mt-5 bg-neutral-800 rounded-3xl cursor-pointer transition duration-300 text-white py-3 w-full hover:bg-neutral-700 ">
+                <svg lucidePlus [size]="25" class="pe-1"></svg> Add to Cart
+            </button>
+        </div>
     </div>
     }
 
-
 </div>
-<!-- <div class="card">
-    <img src="" alt="">
-    <h2></h2>
-    <p></p>
-    <div class="price">
-
-    </div>
-</div> -->
