@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, signal } from '@angular/core';
 import { ProductsService } from '../../services/products-service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/product';
@@ -12,15 +12,19 @@ import { Product } from '../../models/product';
 export class ProductDetails implements OnInit {
   private readonly productService = inject(ProductsService);
   private readonly activatedRoute = inject(ActivatedRoute);
-  private readonly id = this.activatedRoute.snapshot.params['id'];
-  private product: Product | null = null;
+  id = '';
+  product = signal<Product|null>(null);
+
 
   ngOnInit() {
-    this.productService.getProducts(this.id).subscribe({
-      next: (res) => {
-        this.product = res.data;
-        console.log(this.product);
-      },
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = params['id'];
+
+      this.productService.getProducts(this.id).subscribe({
+        next: (res) => {
+          this.product.set(res.data);
+        },
+      });
     });
   }
 }
