@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { UserLayout } from "../../layouts/user-layout/user-layout";
 import { ProductRoutes } from "./products/products.routes";
+import { ProductDetails } from "./products/pages/product-details/product-details";
 
 
 export const UserRoutes:Routes = [

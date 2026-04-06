@@ -13,11 +13,15 @@ export class ProductsService {
 
   private readonly http = inject(HttpClient);
 
-  getProducts(): Observable<any> {
-    return this.http.get(`${this.baseURL}/products`);
-  }
-  getProductDetails() {
+  getProducts(): Observable<any>;
+  getProducts(id: string): Observable<any>;
 
+  getProducts(id?: string):Observable<any> {
+    if(id != null){
+      return this.http.get(`${this.baseURL}/products/${id}`);
+    }else{
+      return this.http.get(`${this.baseURL}/products`);
+    }
   }
 
 }

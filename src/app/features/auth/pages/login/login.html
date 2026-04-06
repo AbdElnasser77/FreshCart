@@ -1,34 +1,35 @@
-<div class="max-w-md mx-auto my-10 border border-gray-200 shadow p-5">
-  <h2 class="font-bold mb-5 text-xl">Login</h2>
-  <form [formGroup]="loginForm">
-    <div class="mb-5">
-      <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5"
-        placeholder="Email"
-      />
-      
-      <client-side-validation [control]="loginForm.get('email')"></client-side-validation>
-    </div>
-    <div class="mb-5">
-      <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-      <input
-        type="password"
-        formControlName="password"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5"
-        placeholder="Password"
-      />
-      <client-side-validation [control]="loginForm.get('password')"></client-side-validation>
+<div class="flex items-center justify-center min-h-screen">
+  <div class="min-w-xl mx-auto my-10 border bg-white border-gray-200 shadow-2xl p-5">
+    <h2 class="font-bold mb-5 text-xl">Login</h2>
+    <form [formGroup]="loginForm">
+      <div class="mb-5">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5"
+          placeholder="Email"
+        />
 
-    </div>
-  </form>
-  <button
-    (click)="login()"
-    class="bg-main rounded text-white px-5 py-3 cursor-pointer hover:bg-main/80"
-  >
-    Login
-  </button>
+        <client-side-validation [control]="loginForm.get('email')"></client-side-validation>
+      </div>
+      <div class="mb-5">
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5"
+          placeholder="Password"
+        />
+        <client-side-validation [control]="loginForm.get('password')"></client-side-validation>
+      </div>
+    </form>
+    <button
+      (click)="login()"
+      class="bg-main rounded text-white px-5 py-3 cursor-pointer hover:bg-main/80"
+    >
+      Login
+    </button>
+  </div>
 </div>
