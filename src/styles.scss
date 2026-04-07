@@ -10,13 +10,13 @@
 body{
     font-family: 'Encode Sans Expanded', sans-serif;
 }
-.product .btn 
+.product .btn
 {
     transition: transform 1s , opacity 1s;
     transform: translateY(100%);
     opacity: 0;
 }
-.product:hover .btn 
+.product:hover .btn
 {
     opacity: 1;
     transform: translateY(0%);

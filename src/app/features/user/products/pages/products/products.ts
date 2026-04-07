@@ -17,8 +17,6 @@ export class Products implements OnInit {
   switchImages: boolean = true;
   private readonly productsService = inject(ProductsService);
 
-
-
   ngOnInit(): void {
     this.productsService.getProducts().subscribe({
       next: (res) => {

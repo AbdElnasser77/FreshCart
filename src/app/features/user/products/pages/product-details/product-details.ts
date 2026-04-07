@@ -1,11 +1,13 @@
-import { ChangeDetectorRef, Component, inject, OnInit, signal } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
+import { Component, inject, OnInit, signal} from '@angular/core';
 import { ProductsService } from '../../services/products-service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/product';
+import { LoadingSpinner } from "../../../../../shared/components/loading-spinner/loading-spinner";
 
 @Component({
   selector: 'app-product-details',
-  imports: [],
+  imports: [LoadingSpinner,CurrencyPipe],
   templateUrl: './product-details.html',
   styleUrl: './product-details.scss',
 })
@@ -23,6 +25,7 @@ export class ProductDetails implements OnInit {
       this.productService.getProducts(this.id).subscribe({
         next: (res) => {
           this.product.set(res.data);
+          console.log(this.product());
         },
       });
     });
