@@ -11,15 +11,23 @@ import { SignUpData } from '../models/sign-up-data';
 export class AuthService {
   private readonly http = inject(HttpClient);
   private readonly baseURL = environment.BaseURL;
+  private _isloggedIn: boolean = false;
 
-
-  SignIn(data:SignInData):Observable<any>{
-    return this.http.post(`${this.baseURL}/auth/signin`,data);
+  constructor() {
+    if (localStorage.getItem('token')) {
+      this._isloggedIn = !!localStorage.getItem('token');
+    }
   }
 
-  SignUp(data:SignUpData):Observable<any>{
-    return this.http.post(`${this.baseURL}/auth/signup`,data);
+  get isLoggedIn(): boolean {
+    return this._isloggedIn;
   }
 
+  SignIn(data: SignInData): Observable<any> {
+    return this.http.post(`${this.baseURL}/auth/signin`, data);
+  }
 
+  SignUp(data: SignUpData): Observable<any> {
+    return this.http.post(`${this.baseURL}/auth/signup`, data);
+  }
 }

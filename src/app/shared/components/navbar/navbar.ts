@@ -8,7 +8,6 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   styleUrl: './navbar.scss',
 })
 export class Navbar {
-
   isMobileOpen:boolean = true;
 
   NavToggle(){
