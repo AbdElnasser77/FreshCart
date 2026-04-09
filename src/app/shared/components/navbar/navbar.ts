@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   styleUrl: './navbar.scss',
 })
 export class Navbar {
- 
+
   isMobileOpen:boolean = true;
 
   NavToggle(){
