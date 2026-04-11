@@ -23,12 +23,12 @@
             </ul>
             <ul class="flex flex-col md:flex-row gap-4 text-center mt-2 md:mt-0 md:ms-2">
                 @if(layout == "user"){
-                <li><a (click)="logout()" routerLinkActive="text-main" class="hover:text-main transition cursor-pointer">Log out</a>
+                <li><a (click)="logout()" class="hover:text-main transition cursor-pointer">Log out</a>
                 </li>
                 }@else{
-                <li><a routerLink="/login" routerLinkActive="text-main" class="hover:text-main transition">Login</a>
+                <li><a routerLink="/auth/login" routerLinkActive="text-main" class="hover:text-main transition">Login</a>
                 </li>
-                <li><a routerLink="/register" routerLinkActive="text-main"
+                <li><a routerLink="/auth/register" routerLinkActive="text-main"
                         class="hover:text-main transition">Register</a></li>
                 }
             </ul>

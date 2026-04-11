@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { AuthService } from '../../../features/auth/services/auth-service';
 
 @Component({
@@ -15,6 +15,7 @@ export class Navbar {
   isLoggedIn: boolean | null = null;
 
   private authService = inject(AuthService);
+  private router = inject(Router);
 
   ngOnInit() {
     this.isLoggedIn = this.authService.isLoggedIn;
@@ -22,7 +23,10 @@ export class Navbar {
 
   logout() {
     this.authService.LogOut();
+    this.authService.updateAuthState();
+  this.router.navigate(['/login']);
   }
+
   NavToggle() {
     this.isMobileOpen = !this.isMobileOpen;
   }
