@@ -1,30 +1,35 @@
 @if (!product()) {
-  <loading-spinner></loading-spinner>
+<loading-spinner></loading-spinner>
 } @else {
-  <div class="container m-auto grid grid-cols-1 md:grid-cols-12 pt-15 gap-4">
-    <div class="md:col-span-4 rounded-3xl overflow-hidden mx-10 ">
-      <img class="scale-x-125" [src]="product()?.imageCover" [alt]="product()?.title" />
-    </div>
-
-    <div class="md:col-span-8 ps-5 space-y-2 mt-5">
-      <h3 class="font-bold text-main">{{product()?.category?.name}}</h3>
-
-      <h2 class="text-3xl font-bold">{{ product()?.title }}</h2>
-      <div class="flex items-center gap-2  text-neutral-500">
-        <span class="text-black">({{ product()?.ratingsAverage?.toPrecision(2) }})</span>
-        <span>{{ product()?.ratingsQuantity }} Reviews </span>
-        <span>•</span>
-        <span>{{ product()?.sold }} Sold</span>
-        <img class="w-23" [src]="product()?.brand?.image" [alt]="product()?.brand?.name">
-      </div>
-      <p class="text-3xl font-bold">{{product()?.price | currency:'LE'}}</p>
-
-      <h4 class="font-bold mt-10">Description</h4>
-      <p>{{product()?.description}}</p>
-
-      <div class="my-3">
-        <button class="bg-main py-2 px-4 rounded-xl text-sm text-white font-bold">Add to cart</button>
-      </div>
-    </div>
+<div class="container m-auto grid grid-cols-1 md:grid-cols-12 pt-15 gap-4">
+  <div class="md:col-span-4 rounded-3xl overflow-hidden mx-10 ">
+    <img class="scale-x-125" [src]="product()?.imageCover" [alt]="product()?.title" />
   </div>
+
+  <div class="md:col-span-8 ps-5 space-y-2 mt-5">
+    <h3 class="font-bold text-main">{{product()?.category?.name}}</h3>
+
+    <h2 class="text-3xl font-bold">{{ product()?.title }}</h2>
+    <div class="flex items-center gap-2  text-neutral-500">
+      <span class="text-black">({{ product()?.ratingsAverage?.toPrecision(2) }})</span>
+      <span>{{ product()?.ratingsQuantity }} Reviews </span>
+      <span>•</span>
+      <span>{{ product()?.sold }} Sold</span>
+      <img class="w-23" [src]="product()?.brand?.image" [alt]="product()?.brand?.name">
+    </div>
+    <p class="text-3xl font-bold">{{product()?.price | currency:'LE'}}</p>
+
+    <h4 class="font-bold mt-10">Description</h4>
+    <p>{{product()?.description}}</p>
+
+    <div class="my-3">
+           <button
+        class="flex px-3 justify-center items-center bg-main/80 rounded-xl cursor-pointer transition duration-300 text-white py-3 hover:bg-green-800 ">
+        <svg lucidePlus [size]="25" class="pe-1"></svg> Add to Cart
+      </button>
+    </div>
+
+   
+  </div>
+</div>
 }

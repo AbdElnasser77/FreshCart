@@ -4,10 +4,11 @@ import { ProductsService } from '../../services/products-service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/product';
 import { LoadingSpinner } from "../../../../../shared/components/loading-spinner/loading-spinner";
+import { LucidePlus } from "@lucide/angular";
 
 @Component({
   selector: 'app-product-details',
-  imports: [LoadingSpinner,CurrencyPipe],
+  imports: [LoadingSpinner, CurrencyPipe, LucidePlus],
   templateUrl: './product-details.html',
   styleUrl: './product-details.scss',
 })

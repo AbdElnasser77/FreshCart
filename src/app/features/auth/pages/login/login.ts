@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ClientSideValidation } from "../../components/client-side-validation/client-side-validation";
 import { AuthService } from '../../services/auth-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { AuthService } from '../../services/auth-service';
 export class Login {
   private readonly fb = inject(FormBuilder);
   private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
 
   loginForm = this.fb.group({
     email:['', [Validators.required,Validators.email]],
@@ -25,6 +27,9 @@ export class Login {
       this.authService.SignIn(this.loginForm.getRawValue()).subscribe({
         next:(res) => {
           console.log(res);
+          localStorage.setItem('token',res.token);
+          this.authService.updateAuthState();
+          this.router.navigate(['./products']);
         }
       })
     }else{
