@@ -6,30 +6,54 @@
     <img class="scale-x-125" [src]="product()?.imageCover" [alt]="product()?.title" />
   </div>
 
-  <div class="md:col-span-8 ps-5 space-y-2 mt-5">
+  <div class="md:col-span-5 ps-5 space-y-2 mt-5">
     <h3 class="font-bold text-main">{{product()?.category?.name}}</h3>
 
     <h2 class="text-3xl font-bold">{{ product()?.title }}</h2>
-    <div class="flex items-center gap-2  text-neutral-500">
-      <span class="text-black">({{ product()?.ratingsAverage?.toPrecision(2) }})</span>
-      <span>{{ product()?.ratingsQuantity }} Reviews </span>
-      <span>•</span>
-      <span>{{ product()?.sold }} Sold</span>
-      <img class="w-23" [src]="product()?.brand?.image" [alt]="product()?.brand?.name">
-    </div>
-    <p class="text-3xl font-bold">{{product()?.price | currency:'LE'}}</p>
 
-    <h4 class="font-bold mt-10">Description</h4>
+    <div class="flex items-center justify-between gap-2 py-5 text-neutral-500">
+      <div class="price">
+        <p class="text-2xl font-bold text-black">{{product()?.price | currency:'LE'}}</p>
+
+
+      </div>
+      <div class="product-info flex items-center ">
+        <span class="text-xl">{{ product()?.sold }} Sold</span>
+        <svg lucideDot [size]="35" class="text-neutral-500"></svg>
+        <svg lucideStar [size]="25" class="text-main me-1"></svg>
+        <span class="text-black font-bold text-xl">{{ product()?.ratingsAverage?.toPrecision(2) }}</span>
+
+      </div>
+
+    </div>
+
+    <h4 class="font-bold mt-5">Description</h4>
     <p>{{product()?.description}}</p>
 
-    <div class="my-3">
-           <button
+    <div class="mt-10 flex">
+      <div class="flex items-center gap-2 bg-gray-50 rounded-lg w-fit pe-5">
+        <button (click)="decrease()"
+          class="w-8 h-full flex items-center cursor-pointer justify-center rounded-md border border-main hover:bg-main hover:text-white transition">
+          -
+        </button>
+
+        <span class="text-center font-medium w-10">
+          {{ quantity }}
+        </span>
+
+        <button (click)="increase()"
+          class="w-8 h-full flex items-center cursor-pointer justify-center rounded-md border border-main hover:bg-main hover:text-white transition">
+          +
+        </button>
+      </div>
+
+      <button
         class="flex px-3 justify-center items-center bg-main/80 rounded-xl cursor-pointer transition duration-300 text-white py-3 hover:bg-green-800 ">
         <svg lucidePlus [size]="25" class="pe-1"></svg> Add to Cart
       </button>
     </div>
 
-   
+
   </div>
 </div>
 }
