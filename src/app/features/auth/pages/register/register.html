@@ -38,7 +38,7 @@
           }
         </div>
         <div class="flex flex-col gap-1">
-          <input pInputText type="rePassword" id="rePassword" placeholder="Confirm Password"
+          <input pInputText type="password" id="rePassword" placeholder="Confirm Password"
             formControlName="rePassword" [invalid]="isInvalid('rePassword')" />
           @if (isInvalid('rePassword')) {
           @if (registerForm.get('rePassword')?.errors?.['required']) {

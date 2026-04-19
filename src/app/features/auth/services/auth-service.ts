@@ -25,7 +25,7 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
       const token = localStorage.getItem('token');
       this._isLoggedIn = !!token;
-      // if(!token) this.router.navigate(['/login']);
+      if(!token) this.router.navigate(['/login']);
     }
   }
   get isLoggedIn(): boolean {
